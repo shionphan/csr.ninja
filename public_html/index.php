@@ -179,7 +179,7 @@ label .help-block {
     <span class="help-block">Full state name</span>
     </label>
     <div class="col-sm-8">
-      <input type="text" class="form-control input-lg" id="inputState" placeholder="Texas">
+      <input type="text" class="form-control input-lg" id="inputState" placeholder="Florida">
     </div>
   </div>
   <div class="form-group">
@@ -187,7 +187,7 @@ label .help-block {
     <span class="help-block">Full city name</span>
     </label>
     <div class="col-sm-8">
-      <input type="text" class="form-control input-lg" id="inputLocality" placeholder="San Antonio">
+      <input type="text" class="form-control input-lg" id="inputLocality" placeholder="Miami">
     </div>
   </div>
   <div class="form-group">
@@ -195,7 +195,7 @@ label .help-block {
     <span class="help-block">Full legal company or personal name</span>
     </label>
     <div class="col-sm-8">
-      <input type="text" class="form-control input-lg" id="inputOrganization" placeholder="Big Bob's Beepers">
+      <input type="text" class="form-control input-lg" id="inputOrganization" placeholder="Wal-Mart Stores, Inc.">
     </div>
   </div>
   <div class="form-group">
@@ -203,7 +203,7 @@ label .help-block {
     <span class="help-block">Branch of organization</span>
     </label>
     <div class="col-sm-8">
-      <input type="text" class="form-control input-lg" id="inputOrganizationalUnit" placeholder="Marketing">
+      <input type="text" class="form-control input-lg" id="inputOrganizationalUnit" placeholder="Store">
     </div>
   </div>
   <div class="form-group">
@@ -211,7 +211,7 @@ label .help-block {
     <span class="help-block">The FQDN for your domain</span>
     </label>
     <div class="col-sm-8">
-      <input type="text" class="form-control input-lg" id="inputCommonName" placeholder="www.example.com">
+      <input type="text" class="form-control input-lg" id="inputCommonName" placeholder="www.walmart.com">
     </div>
   </div>
   <div class="form-group">
@@ -219,7 +219,7 @@ label .help-block {
 <span class="help-block">To receive a copy of CSR</span>
     </label>
     <div class="col-sm-8">
-      <input type="text" class="form-control input-lg" id="inputYourEmail" placeholder="your@email.com">
+      <input type="text" class="form-control input-lg" id="inputYourEmail" placeholder="Optional">
     </div>
   </div>
   <div class="form-group">
