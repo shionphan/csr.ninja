@@ -203,7 +203,7 @@ label .help-block {
     <span class="help-block">Branch of organization</span>
     </label>
     <div class="col-sm-8">
-      <input type="text" class="form-control input-lg" id="inputOrganizationalUnit" placeholder="Store">
+      <input type="text" class="form-control input-lg" id="inputOrganizationalUnit" placeholder="Supermarket">
     </div>
   </div>
   <div class="form-group">
