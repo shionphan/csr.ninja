@@ -179,7 +179,7 @@ label .help-block {
     <span class="help-block">Full state name</span>
     </label>
     <div class="col-sm-8">
-      <input type="text" class="form-control input-lg" id="inputState" placeholder="Florida">
+      <input type="text" class="form-control input-lg" id="inputState" placeholder="California">
     </div>
   </div>
   <div class="form-group">
@@ -187,7 +187,7 @@ label .help-block {
     <span class="help-block">Full city name</span>
     </label>
     <div class="col-sm-8">
-      <input type="text" class="form-control input-lg" id="inputLocality" placeholder="Miami">
+      <input type="text" class="form-control input-lg" id="inputLocality" placeholder="Brisbane">
     </div>
   </div>
   <div class="form-group">
