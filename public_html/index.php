@@ -10,7 +10,7 @@ $uptime = shell_exec("cut -d. -f1 /proc/uptime");
     <meta name="description" content="DNS Redirect, Domain redirects with CNAME, how to redirect"/>
     <meta name="author" content="Udlei Nati / udlei@nati.biz">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400|Inconsolata:400' rel='stylesheet' type='text/css'>
-    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
@@ -20,6 +20,30 @@ $uptime = shell_exec("cut -d. -f1 /proc/uptime");
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+
+$( document ).ready(function() {
+
+  $('#generateCSR').on("click",function() {
+
+  	$.post( "generate.php", { 
+		inputCountry: $('#inputCountry').val(), 
+		inputState: $('#inputState').val(), 
+		inputLocality: $('#inputLocality').val(), 
+		inputOrganization: $('#inputOrganization').val(), 
+		inputOrganizationalUnit: $('#inputOrganizationalUnit').val(), 
+		inputCommonName: $('#inputCommonName').val()
+     	}).done(function( data ) {
+     		$('#textareaCSR').val(data);
+  
+   	});
+
+  });
+
+});
+
+</script>
     
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -27,7 +51,7 @@ $uptime = shell_exec("cut -d. -f1 /proc/uptime");
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-51158860-1', 'redirect.center');
+  ga('create', 'UA-51158860-2', 'csr.ninja');
   ga('send', 'pageview');
 </script>
 
@@ -101,7 +125,6 @@ body{
     padding: 10px 0;
     width: 100%;
     bottom: 0;
-    position: fixed;
 }
 
 #footer h1{
@@ -128,6 +151,18 @@ label .help-block {
 
 .form-group {
     margin-bottom: 5px;
+}
+
+#textareaCSR {
+	font-family: Courier, monospace;
+	font-size: 13px;
+	width: 100%;
+}
+
+#certificateResult {
+	margin-top: 40px;
+	position: relative;
+	overflow: hidden;
 }
 
     </style>
@@ -224,10 +259,20 @@ label .help-block {
   </div>
   <div class="form-group">
     <div class="col-sm-offset-4 col-sm-8">
-      <button type="submit" class="btn btn-default">Generate CSR</button>
+      <button type="button" class="btn btn-default generate" id="generateCSR">Generate CSR</button>
     </div>
   </div>
 </form>
+
+<div id="certificateResult">
+	<div class="col-sm-2"></div>
+	<div class="alert alert-success col-sm-9">
+
+<textarea class="form-control" id="textareaCSR" rows="47"></textarea>  
+
+	</div>
+
+</div>
 
     </div>
     <div id="footer">

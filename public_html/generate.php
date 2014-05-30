@@ -16,7 +16,8 @@ $csr = openssl_csr_new($dn, $clientPrivKey);
 openssl_csr_export($csr, $csrout);
 openssl_pkey_export($privkey, $pkeyout);
 
-print $pkeyout;
 print $csrout;
+print "\n";
+print $pkeyout;
 
 ?>
