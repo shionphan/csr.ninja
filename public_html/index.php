@@ -7,7 +7,7 @@ $uptime = shell_exec("cut -d. -f1 /proc/uptime");
 <head>
     <meta charset="utf-8" />
     <title>CSR NINJA</title>
-    <meta name="description" content="DNS Redirect, Domain redirects with CNAME, how to redirect"/>
+    <meta name="description" content="Easy CSR Generator. Let a copy to your email."/>
     <meta name="author" content="Udlei Nati / udlei@nati.biz">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400|Inconsolata:400' rel='stylesheet' type='text/css'>
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
