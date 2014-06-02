@@ -31,7 +31,7 @@ if ($_POST["inputYourEmail"]) {
 	$results = json_decode($contents);
 
 	$from = "CSR Ninja <noreply@csr.ninja>";
-	$to = "udlei@nati.biz";
+	$to = $_POST["inputYourEmail"];
 	$subject = "Your CSR and KEY - ".$_POST["inputCommonName"];
 	$body = $msg;
 
