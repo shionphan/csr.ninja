@@ -20,26 +20,85 @@ $uptime = shell_exec("cut -d. -f1 /proc/uptime");
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script src="/javascript.js"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.12.0/jquery.validate.min.js"></script>
 
 <script type="text/javascript">
 
 $( document ).ready(function() {
 
-  $('#generateCSR').on("click",function() {
+  $("#formCertificate").validate({
+        rules: {
+            "inputCountry": {
+                minlength: 2,
+                maxlength: 2,
+                required: true
+            },
+            "inputState": {
+                required: true
+            },
+            "inputLocality": {
+                required: true
+            },
+            "inputOrganization": {
+                required: true
+            },
+            "inputOrganizationalUnit": {
+                required: true
+            },
+            "inputCommonName": {
+                required: true
+            },
+            "inputYourEmail": {
+                email: true
+            },
 
-  	$.post( "generate.php", { 
-		inputCountry: $('#inputCountry').val(), 
-		inputState: $('#inputState').val(), 
-		inputLocality: $('#inputLocality').val(), 
-		inputOrganization: $('#inputOrganization').val(), 
-		inputOrganizationalUnit: $('#inputOrganizationalUnit').val(), 
-		inputCommonName: $('#inputCommonName').val()
-     	}).done(function( data ) {
-     		$('#textareaCSR').val(data);
-  
-   	});
+	},
+         highlight: function(element) {
+            $(element).closest('.form-group').addClass('has-error');
+        },
+        unhighlight: function(element) {
+            $(element).closest('.form-group').removeClass('has-error');
+        },
+        errorElement: 'span',
+        errorPlacement: function(error, element) {
+            if(element.parent('.input-group').length) {
+                error.insertAfter(element.parent());
+            } else {
+                error.insertAfter(element);
+            }
+        },
+	submitHandler: function(form) {
 
-  });
+		$('#alertEmail').hide();
+
+		$('#certificateResult').show();
+		$('#textareaCSR').val('Please wait...');
+		$(window).scrollTop(($("#certificateResult").offset().top - 10));
+
+        	$.post( "generate.php", { 
+                	inputCountry: $('#inputCountry').val(), 
+                	inputState: $('#inputState').val(), 
+                	inputLocality: $('#inputLocality').val(), 
+                	inputOrganization: $('#inputOrganization').val(), 
+                	inputOrganizationalUnit: $('#inputOrganizationalUnit').val(), 
+                	inputCommonName: $('#inputCommonName').val(),
+			inputYourEmail: $('#inputYourEmail').val()
+        	}).done(function( data ) {
+
+			if ($('#inputYourEmail').val()) {
+				$('#alertEmail').html('A copy was sent to your email - ' + $('#inputYourEmail').val());
+				$('#alertEmail').show();
+			}
+
+                	$('#textareaCSR').val(data); 
+        	}); 
+
+
+    	}
+	
+    });
+
 
 });
 
@@ -67,6 +126,14 @@ body{
 
 .bold { 
     font-weight: bold;
+}
+
+span.error { 
+	color: #A94442;
+	font-size: 12px;
+	margin-bottom: 5px;
+	margin-left: 5px;
+	margin-top: 2px;
 }
 
 .container{
@@ -199,14 +266,14 @@ label .help-block {
 
     <div id="content" class="container">
 
-<form class="form-horizontal" role="form">
+<form class="form-horizontal" role="form" id="formCertificate">
   
   <div class="form-group">
     <label for="inputCountry" class="col-sm-4 control-label">Country
     <span class="help-block">Two letter abbreviation</span>
     </label>
     <div class="col-sm-8">
-      <input type="text" class="form-control input-lg" id="inputCountry" placeholder="US">
+      <input type="text" class="form-control input-lg" id="inputCountry" name="inputCountry" placeholder="US" onKeyUp="this.value=removeDiacritics(this.value).toUpperCase()">
     </div>
   </div>
   <div class="form-group">
@@ -214,7 +281,7 @@ label .help-block {
     <span class="help-block">Full state name</span>
     </label>
     <div class="col-sm-8">
-      <input type="text" class="form-control input-lg" id="inputState" placeholder="California">
+      <input type="text" class="form-control input-lg" id="inputState" name="inputState" placeholder="California" onKeyUp="this.value=removeDiacritics(this.value)">
     </div>
   </div>
   <div class="form-group">
@@ -222,7 +289,7 @@ label .help-block {
     <span class="help-block">Full city name</span>
     </label>
     <div class="col-sm-8">
-      <input type="text" class="form-control input-lg" id="inputLocality" placeholder="Brisbane">
+      <input type="text" class="form-control input-lg" id="inputLocality" name="inputLocality" placeholder="Brisbane" onKeyUp="this.value=removeDiacritics(this.value)">
     </div>
   </div>
   <div class="form-group">
@@ -230,7 +297,7 @@ label .help-block {
     <span class="help-block">Full legal company or personal name</span>
     </label>
     <div class="col-sm-8">
-      <input type="text" class="form-control input-lg" id="inputOrganization" placeholder="Wal-Mart Stores, Inc.">
+      <input type="text" class="form-control input-lg" id="inputOrganization" name="inputOrganization" placeholder="Wal-Mart Stores, Inc." onKeyUp="this.value=removeDiacritics(this.value)">
     </div>
   </div>
   <div class="form-group">
@@ -238,7 +305,7 @@ label .help-block {
     <span class="help-block">Branch of organization</span>
     </label>
     <div class="col-sm-8">
-      <input type="text" class="form-control input-lg" id="inputOrganizationalUnit" placeholder="Supermarket">
+      <input type="text" class="form-control input-lg" id="inputOrganizationalUnit" name="inputOrganizationalUnit" placeholder="Supermarket" onKeyUp="this.value=removeDiacritics(this.value)">
     </div>
   </div>
   <div class="form-group">
@@ -246,7 +313,7 @@ label .help-block {
     <span class="help-block">The FQDN for your domain</span>
     </label>
     <div class="col-sm-8">
-      <input type="text" class="form-control input-lg" id="inputCommonName" placeholder="www.walmart.com">
+      <input type="text" class="form-control input-lg" id="inputCommonName" name="inputCommonName" placeholder="www.walmart.com" onKeyUp="this.value=removeDiacritics(this.value).toLowerCase()">
     </div>
   </div>
   <div class="form-group">
@@ -254,19 +321,22 @@ label .help-block {
 <span class="help-block">To receive a copy of CSR</span>
     </label>
     <div class="col-sm-8">
-      <input type="text" class="form-control input-lg" id="inputYourEmail" placeholder="Optional">
+      <input type="text" class="form-control input-lg" id="inputYourEmail" name="inputYourEmail" placeholder="Optional">
     </div>
   </div>
   <div class="form-group">
     <div class="col-sm-offset-4 col-sm-8">
-      <button type="button" class="btn btn-default generate" id="generateCSR">Generate CSR</button>
+      <button type="submit" class="btn btn-default generate" id="generateCSR">Generate CSR</button>
     </div>
   </div>
 </form>
 
-<div id="certificateResult">
+<div id="certificateResult" style="display: none;">
 	<div class="col-sm-2"></div>
 	<div class="alert alert-success col-sm-9">
+
+<div class="alert alert-info" id="alertEmail" style="display: none;">
+</div>
 
 <textarea class="form-control" id="textareaCSR" rows="47"></textarea>  
 
