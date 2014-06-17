@@ -13,7 +13,7 @@ $dn = array(
 
 $privkey = openssl_pkey_new();
 
-$csr = openssl_csr_new($dn, $clientPrivKey);
+$csr = openssl_csr_new($dn, $privkey);
 
 openssl_csr_export($csr, $csrout);
 openssl_pkey_export($privkey, $pkeyout);
