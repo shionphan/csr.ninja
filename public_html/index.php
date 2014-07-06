@@ -6,7 +6,7 @@ $uptime = shell_exec("cut -d. -f1 /proc/uptime");
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>CSR NINJA</title>
+    <title>CSR.NINJA</title>
     <meta name="description" content="Easy CSR Generator. Let a copy to your email."/>
     <meta name="author" content="Udlei Nati / udlei@nati.biz">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400|Inconsolata:400' rel='stylesheet' type='text/css'>
