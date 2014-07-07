@@ -206,6 +206,10 @@ span.error {
     color: #fc5a44;
 }
 
+.planilha-zone {
+    color: #006DA3;
+}
+
 label .help-block {
     font-size: 12px;
     font-weight: normal;
@@ -242,6 +246,8 @@ label .help-block {
     <a href="http://redirect.center" class="redirect-center" title="redirect.center">redirect.center</a> 
     :
     <a href="http://csr.ninja" class="csr-ninja" title="csr.ninja">csr.ninja</a>
+    :
+    <a href="http://planilha.zone" class="planilha-zone" title="planilha.zone">planilha.zone</a>
         </div>
     </div>
     <div id="header">
