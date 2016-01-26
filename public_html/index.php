@@ -1,27 +1,23 @@
-<?php
-
-$uptime = shell_exec("cut -d. -f1 /proc/uptime");
-
-?><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <title>CSR.NINJA</title>
     <meta name="description" content="Easy CSR Generator. Let a copy to your email."/>
     <meta name="author" content="Udlei Nati / udlei@nati.biz">
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400|Inconsolata:400' rel='stylesheet' type='text/css'>
-    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300,400|Inconsolata:400' rel='stylesheet' type='text/css'>
+    <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
 
 <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
 <!-- Optional theme -->
-<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
 
 <!-- Latest compiled and minified JavaScript -->
-<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script src="/javascript.js"></script>
-<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.12.0/jquery.validate.min.js"></script>
+<script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.12.0/jquery.validate.min.js"></script>
 
 <script type="text/javascript">
 
@@ -198,18 +194,6 @@ span.error {
     margin-bottom: 10px;
 }
 
-.csr-ninja {
-    color: #5D9170;
-}
-
-.redirect-center{
-    color: #fc5a44;
-}
-
-.planilha-zone {
-    color: #006DA3;
-}
-
 label .help-block {
     font-size: 12px;
     font-weight: normal;
@@ -241,13 +225,11 @@ label .help-block {
 <body>
     <div id="top-bar">
         <div class="container">
+            <div class="see-too">
     See too
-    :
-    <a href="http://redirect.center" class="redirect-center" title="redirect.center">redirect.center</a> 
-    :
-    <a href="http://csr.ninja" class="csr-ninja" title="csr.ninja">csr.ninja</a>
-    :
-    <a href="http://planilha.zone" class="planilha-zone" title="planilha.zone">planilha.zone</a>
+    : <a href="http://redirect.center" title="redirect.center">redirect.center</a> 
+    : <a href="http://csr.ninja" title="csr.ninja">csr.ninja</a>
+            </div>
         </div>
     </div>
     <div id="header">
@@ -353,11 +335,14 @@ label .help-block {
     </div>
     <div id="footer">
         <div class="container">
-                <span class="csr-ninja">CSR.NINJA</span> is 
+                <span>CSR.NINJA</span> is 
                 <a href="https://github.com/unattis/csr.ninja">open source</a>, 
                 general feedback and ideas are greatly appreciated via either 
                 the <a href="https://github.com/unattis/csr.ninja/issues">GitHub issues</a>.
         </div>
     </div>
+
+<a href="https://github.com/udlei/csr.ninja"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/652c5b9acfaddf3a9c326fa6bde407b87f7be0f4/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png"></a>
+
 </body>
 </html>
