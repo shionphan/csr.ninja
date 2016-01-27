@@ -35,7 +35,7 @@ $(document).ready(function() {
         }
 
     });
-    
+
     $("#formCertificate").validate({
         rules: {
             "inputCountry": {
@@ -377,7 +377,7 @@ LkhYm5SGJYi3a7u3uLEE6FE=
           </div>
           <div class="form-group">
             <div class="col-sm-offset-4 col-sm-8">
-              <button type="button" class="btn btn-danger generate" id="generateCSR">Generate KEY and CSR</button>
+              <button type="submit" class="btn btn-danger generate" id="generateCSR">Generate CSR</button>
             </div>
           </div>
         </form>
