@@ -23,6 +23,19 @@
 
 $(document).ready(function() {
 
+    $(".mark-to-use-key input").click(function() {
+
+        if ($(this).prop("checked")) {
+            $('div.private-key').removeClass('hide');
+        }
+
+        else {
+            $('div.private-key').addClass('hide');
+            $('div.private-key textarea').val('');
+        }
+
+    });
+    
     $("#formCertificate").validate({
         rules: {
             "inputCountry": {
@@ -79,7 +92,8 @@ $(document).ready(function() {
                     inputOrganization: $('#inputOrganization').val(), 
                     inputOrganizationalUnit: $('#inputOrganizationalUnit').val(), 
                     inputCommonName: $('#inputCommonName').val(),
-                    inputYourEmail: $('#inputYourEmail').val()
+                    inputYourEmail: $('#inputYourEmail').val(),
+                    inputYourPrivateKey: $('#inputYourPrivateKey').val()
             }).done(function( data ) {
 
                 if ($('#inputYourEmail').val()) {
@@ -322,16 +336,16 @@ div.mark-to-use-key {
           </div>
             <div class="form-group checkbox">
               <div class="col-sm-4"></div>
-              <div class="col-sm-8" class="mark-to-use-key">
-                <label><input type="checkbox">Mark to use your KEY to generate CSR</label>
+              <div class="col-sm-8 mark-to-use-key">
+                <label><input type="checkbox">Mark to use your Private KEY</label>
               </div>
           </div>
-          <div class="form-group">
-            <label for="inputMyPrivateKey" class="col-sm-4 control-label">Your Private Key
+          <div class="form-group private-key hide">
+            <label for="inputYourPrivateKey" class="col-sm-4 control-label">Your Private Key
                 <span class="help-block">You can use your Private Key</span>
             </label>
             <div class="col-sm-8">
-              <textarea class="form-control input-sm" id="inputMyPrivateKey" name="inputMyPrivateKey" placeholder="-----BEGIN PRIVATE KEY-----
+              <textarea class="form-control input-sm" id="inputYourPrivateKey" name="inputYourPrivateKey" placeholder="-----BEGIN PRIVATE KEY-----
 MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC/mmvu3dioOg8F
 AhBu+XkJMIKYfpN4rA3cyvXiTEZ6H4KWVua7IalGHJulI2Z1LveYw2bWh2hFbxTM
 JMaFJLmt84wfRjqD6WM/oifoqAjg1dxkk2iP0I/FnZkfYNwTx97XrKamxEByldp/

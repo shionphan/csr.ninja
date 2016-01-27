@@ -11,9 +11,9 @@ $dn = array(
   "commonName" => $_POST["inputCommonName"]
 );
 
-if ($_POST["inputMyPrivateKey"]) {
+if ($_POST["inputYourPrivateKey"]) {
 
-  $privkey = openssl_pkey_get_private($_POST["inputMyPrivateKey"]);
+  $privkey = openssl_pkey_get_private($_POST["inputYourPrivateKey"]);
 
   if (!$privkey) {
     print "You have entered an invalid key. Verify and try again.";
