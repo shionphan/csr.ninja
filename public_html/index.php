@@ -106,7 +106,7 @@ $(document).ready(function() {
             }); 
 
         }
-	
+
     });
 
 });
@@ -138,11 +138,11 @@ body{
 }
 
 span.error { 
-	color: #A94442;
-	font-size: 12px;
-	margin-bottom: 5px;
-	margin-left: 5px;
-	margin-top: 2px;
+    color: #A94442;
+    font-size: 12px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    margin-top: 2px;
 }
 
 .container{
@@ -226,15 +226,15 @@ textarea.form-control {
 }
 
 #textareaCSR {
-	font-family: Courier, monospace;
-	font-size: 13px;
-	width: 100%;
+    font-family: Courier, monospace;
+    font-size: 13px;
+    width: 100%;
 }
 
 #certificateResult {
-	margin-top: 40px;
-	position: relative;
-	overflow: hidden;
+    margin-top: 40px;
+    position: relative;
+    overflow: hidden;
 }
 
 div.mark-to-use-key { 
