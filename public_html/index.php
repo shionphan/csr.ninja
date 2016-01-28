@@ -186,10 +186,10 @@ span.error {
     text-align: center;
 }
 
-#header h1 a:hover, 
+/*#header h1 a:hover, 
 #footer h1 a:hover{
     color: #FF350D;
-}
+}*/
 
 #content.container { 
     margin-top: 20px;
